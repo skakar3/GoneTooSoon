@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>GoneTooSoon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat&family=Dancing+Script&display=swap" rel="stylesheet">
+      <style>
+         body {
+         background-color: white;
+         margin: 0;
+         padding: 0;
+         font-family: Arial, sans-serif;
+         font-size: 16px;
+         line-height: 1.5;
+         }
+         header {
+         background-image: url('header-image.jpg');
+         background-size: cover;
+         background-position: center;
+         height: 100vh;
+         }
+         section {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: space-around;
+         padding: 50px;
+         }
+         section img {
+         width: 30%;
+         margin-bottom: 20px;
+         }
+         video {
+         display: block;
+         margin: 0 auto;
+         width: 80%;
+         max-width: 800px;
+         margin-top: 50px;
+         margin-bottom: 50px;
+         }
+         footer {
+         background-color: #111111;
+         color: #ffffff;
+         padding: 50px;
+         text-align: center;
+         }
+         footer p {
+         margin-bottom: 20px;
+         }
+         nav {
+         background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8));
+                 display: flex;
+        justify-content: center;
+        align-items: center;
+         } 
+         nav a {
+         color: white;
+         font-weight: bold;
+        font-family: Caveat;
+         margin-top: 5px;
+         }
+         #modal-image {
+         position: fixed;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         max-width: 100%;
+         max-height: 100%;
+         z-index: 1000;
+         display: none;
+         }
+  #loading-screen {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #loading-screen.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+    z-index: -1;
+  }
+        .text-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+    .white-text {
+        color: white;
+        font-weight: lighter;
+        font-size: 10VW;
+        font-family: Caveat;
+        white-space: nowrap;
+      }
+         @media only screen and (max-width: 768px) {
+         section img {
+         width: 100%;
+         }
+         video {
+         width: 100%;
+         }
+         footer {
+         padding: 20px;
+         } 
+         }
+      </style>
+   </head>
+   <body>
+      <div id="loading-screen">
+        <div class="text-container">
+          <span class="white-text">Gone Too Soon</span>
+        </div>
+      </div>
+      <header>
+<nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 999; display: flex; justify-content: space-between; align-items: center; padding: 20px;">
+   <a href="#" style="display: flex; align-items: center;">
+     <video src="Videos/Presentation - Gone Too Soon.MOV" controls style="width: 55px; height: 80px; margin-right: 10px;"></video>
+   </a>
+   <div style="display: flex; align-items: center;">
+     <a href="#video" style="color: white; font-weight: bold; text-decoration: none; margin-right: 20px;">Gone Too Soon</a>
+     <a href="#f11" style="color: white; font-weight: bold; text-decoration: none; margin-right: 20px;">Images</a>
+     <a href="#statement" style="color: white; font-weight: bold; text-decoration: none; margin-right: 20px;">Artist Statement</a>
+     <a href="#contact" style="color: white; font-weight: bold; text-decoration: none; margin-right: 20px;">Contact</a>
+   </div>
+</nav>
+
+      </header>
+<div class="content">
+  <video id="video" src="Videos/Presentation - Gone Too Soon.MOV" controls></video>
+  <section id="f11">
+    <img src="Images/Tiger 01.jpg" alt="image7">
+    <img src="Images/Cheetah.jpg" alt="image1">
+    <img src="Images/Rhino Calf.jpg" alt="image2">
+    <img src="Images/Tiger 02.jpg" alt="image3">
+    <img src="Images/Elephant Calf.jpg" alt="image4">
+    <img src="Images/Leopard.jpg" alt="image5">
+    <img src="Images/Lion.jpg" alt="image6">
+  </section>
+  <section id="statement">
+  </section>
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>123 Main Street<br>
+      Anytown, USA 12345<br>
+      Phone: (555) 555-5555<br>
+      Email: info@gonetooesoon.com</p>
+  </section>
+</div>
+
+      <img id="modal-image" src="Images/Gone Too Soon - Artist Statement.png" alt="image6">
+<div id="contact"></div>
+<footer>
+  <p>Contact: rahulkakarlapudi999@gmail.com</p>
+  <p><a href="https://instagram.com/sai.rahul.raju?igshid=YmMyMTA2M2Y=" target="_blank" style="color: white; text-decoration: none;">Instagram</a></p>
+  <p>Chicago, Illinois, 60607</p>
+</footer>
+</footer>
+
+      <script>
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      const loadingScreen = document.querySelector('#loading-screen');
+      loadingScreen.classList.add('fade-out');
+    }, 1000);
+  });
+         
+         const artistStatementLink = document.querySelector('nav a[href="#statement"]');
+         const modalImage = document.getElementById('modal-image');
+         artistStatementLink.addEventListener('click', (event) => {
+           event.preventDefault();
+           modalImage.style.display = 'block';
+         });
+         modalImage.addEventListener('click', () => {
+           modalImage.style.display = 'none';
+         });
+         document.addEventListener('click', (event) => {
+           if (event.target !== artistStatementLink && event.target !== modalImage) {
+             modalImage.style.display = 'none';
+           }
+         });
+      </script>
+   </body>
