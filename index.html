@@ -7,142 +7,7 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Dancing+Script&display=swap" rel="stylesheet">
-      <style>
-         body {
-         background-color: white;
-         margin: 0;
-         padding: 0;
-         font-family: Arial, sans-serif;
-         font-size: 16px;
-         line-height: 1.5;
-         }
-         header {
-         background-image: url('header-image.jpg');
-         background-size: cover;
-         background-position: center;
-         height: 10vh;
-         }
-         section {
-         display: flex;
-         flex-wrap: wrap;
-         justify-content: space-around;
-         padding: 50px;
-         }
-         section img {
-         width: 30%;
-         margin-bottom: 20px;
-         }
-         iframe#video {
-         display: block;
-         margin: 0 auto;
-         width: 80%;
-         height: 550px; /* Adjust the aspect ratio here */
-         max-width: 100%;
-         margin-top: 50px;
-         margin-bottom: 50px;
-         } 
-         video {
-         display: block;
-         margin: 0 auto;
-         width: 80%;
-         max-width: 800px;
-         margin-top: 50px;
-         margin-bottom: 50px;
-         }
-         footer {
-         background-color: #111111;
-         color: #ffffff;
-         padding: 50px;
-         text-align: center;
-         }
-         footer p {
-         margin-bottom: 20px;
-         }
-         nav {
-         background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8));
-         display: flex;
-         justify-content: space-between;
-         align-items: center;
-         padding: 5px;
-         }
-         nav a {
-         color: white;
-         font-weight: bold;
-         font-family: Caveat;
-         margin-top: 5px;
-         margin:0;
-         font-size: 20px;
-         }
-         #modal-image {
-         position: fixed;
-         top: 50%;
-         left: 50%;
-         transform: translate(-50%, -50%);
-         max-width: 100%;
-         max-height: 100%;
-         z-index: 1000;
-         display: none;
-         }
-         #loading-screen {
-         position: fixed;
-         z-index: 9999;
-         top: 0;
-         left: 0;
-         width: 100%;
-         height: 100%;
-         background-color: black;
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         }
-         #loading-screen.fade-out {
-         opacity: 0;
-         transition: opacity 1s ease-out;
-         z-index: -1;
-         }
-         .text-container {
-         position: absolute;
-         top: 50%;
-         left: 50%;
-         transform: translate(-50%, -50%);
-         white-space: nowrap;
-         }
-         .white-text {
-         color: white;
-         font-weight: lighter;
-         font-size: 10VW;
-         font-family: Caveat;
-         white-space: nowrap;
-         }
-         @media only screen and (max-width: 768px) {
-         section img {
-         width: 100%;
-         }
-         video {
-         width: 100%;
-         }
-         footer {
-         padding: 20px;
-         } 
-         }
-         section#statement {
-         height: 0;
-         overflow: hidden;
-         padding: 0;
-         }
-         .title {
-         position: fixed;
-         top: 50%;
-         left: 50%;
-         transform: translate(-50%, -50%);
-         background-color: rgba(0, 0, 0, 0.7);
-         color: white;
-         padding: 10px;
-         font-size: 18px;
-         border-radius: 5px;
-         z-index: 1000;
-         }
-      </style>
+      <link rel="stylesheet" href="style.css">
    </head>
    <body>
       <div id="loading-screen">
@@ -167,10 +32,9 @@
          <iframe id="video" src="https://www.youtube.com/embed/g65_Ds45jHA" allowfullscreen></iframe>
          <section id="f11">
             <img src="Images/Tiger 01.jpg" alt="image7" class="image" data-title="Tiger">
+            <img src="Images/Elephant 01.jpg" alt="image3" class="image" data-title="Elephant 01">
             <img src="Images/Cheetah.jpg" alt="image1" class="image" data-title="Cheetah">
             <img src="Images/Rhino Calf.jpg" alt="image5" class="image" data-title="Rhino Calf">
-            <img src="Images/Lioness.jpg" alt="image4" class="image" data-title="Lioness">
-            <img src="Images/Elephant 01.jpg" alt="image3" class="image" data-title="Elephant 01">
             <img src="Images/Tiger 02.jpg" alt="image2" class="image" data-title="Tiger 02">
             <img src="Images/Rhino.jpg" alt="image6" class="image" data-title="Rhino">
          </section>
@@ -181,101 +45,12 @@
       <div id="contact"></div>
       <footer>
          <p>Contact: rahulkakarlapudi999@gmail.com</p>
-         <p><a href="https://instagram.com/sai.rahul.raju?igshid=YmMyMTA2M2Y=" target="_blank" style="color: white; text-decoration: none;">Instagram</a></p>
+         <div class="social-links">
+            <a href="https://instagram.com/sai.rahul.raju?igshid=YmMyMTA2M2Y=" target="_blank" class="instagram-link">@sai.rahul.raju</a>
+            <a href="https://github.com/skakar3/GoneTooSoon" target="_blank" class="github-link">GitHub</a>
+         </div>
          <p>Chicago, Illinois, 60607</p>
       </footer>
       </footer>
-      <script>
-         window.addEventListener('load', function() {
-           setTimeout(function() {
-             const loadingScreen = document.querySelector('#loading-screen');
-             loadingScreen.classList.add('fade-out');
-           }, 1000);
-         });
-                const artistStatementLink = document.querySelector('nav a[href="#statement"]');
-                const modalImage = document.getElementById('modal-image');
-                artistStatementLink.addEventListener('click', (event) => {
-                  event.preventDefault();
-                  modalImage.style.display = 'block';
-                });
-                modalImage.addEventListener('click', () => {
-                  modalImage.style.display = 'none';
-                });
-                document.addEventListener('click', (event) => {
-                  if (event.target !== artistStatementLink && event.target !== modalImage) {
-                    modalImage.style.display = 'none';
-                  }
-                });
-         
-         
-         //         // Function to show the title
-         // function showTitle(event) {
-         //   const image = event.target;
-         //   const title = image.getAttribute('data-title');
-         
-         //   const titleElement = document.createElement('div');
-         //   titleElement.className = 'title';
-         //   titleElement.textContent = title;
-         //   document.body.appendChild(titleElement);
-         
-         // setTimeout(() => {
-         //     titleElement.style.display = 'none';
-         //   }, 5000);
-         // }
-         
-         // // Add data-title attribute to the images
-         // const images = document.querySelectorAll('.image');
-         // images.forEach((image) => {
-         //   image.addEventListener('mouseover', showTitle);
-         //   image.addEventListener('click', showTitle);
-         // }
-         
-         
-         let currentTitleElement = null;
-         
-         // Function to show the title
-         function showTitle(event) {
-         const image = event.target;
-         const title = image.getAttribute('data-title');
-         
-         // Remove the current title element, if exists
-         if (currentTitleElement) {
-         document.body.removeChild(currentTitleElement);
-         currentTitleElement = null;
-         }
-         
-         const titleElement = document.createElement('div');
-         titleElement.className = 'title';
-         titleElement.textContent = title;
-         document.body.appendChild(titleElement);
-         currentTitleElement = titleElement;
-         
-         // Hide the title when the image is off the screen
-         const rect = image.getBoundingClientRect();
-         const imageTop = rect.top;
-         const imageBottom = rect.bottom;
-         const windowHeight = window.innerHeight;
-         
-         if (imageBottom < 0 || imageTop > windowHeight) {
-         titleElement.style.display = 'none';
-         }
-         
-         // Hide the title when the user clicks anywhere else on the screen
-         document.addEventListener('click', hideTitle);
-         
-         function hideTitle(event) {
-         if (event.target !== image && event.target !== titleElement) {
-         titleElement.style.display = 'none';
-         document.removeEventListener('click', hideTitle);
-         }
-         }
-         }
-         
-         // Add data-title attribute to the images
-         const images = document.querySelectorAll('.image');
-         images.forEach((image) => {
-         image.addEventListener('mouseover', showTitle);
-         image.addEventListener('click', showTitle);
-         });
-      </script>
+      <script src="script.js"></script>
    </body>
